@@ -1,0 +1,25 @@
+.header {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 40px;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+.labelClass{
+  text-align: left;
+  margin-top: 30px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.textBox{
+  margin-top:30px; 
+  width:150px; 
+  height:25px; 
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.textBox:hover{
+  background-color:cornflowerblue;
+}

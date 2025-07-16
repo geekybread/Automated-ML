@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Home Page</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static',filename='css/assets/css/main.css') }}" />
+		<link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}" />
+		<noscript><link rel="stylesheet" href="{{ url_for('static',filename='css/assets/css/noscript.css')}}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							<span class="icon fa-gem"></span>
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>Auto ML </h1>
+								<p>UI for machine learning pipeline</p>
+						</div>
+						<p style="margin:auto; font-size: 20px;margin-bottom:20px"><a href="{{ url_for('upload') }}">Start</a></p>
+						<nav>
+							<ul>
+								<li><a href="#about">About</a></li>
+								<li><a href="#use">How to Use</a></li>
+								<li><a href="#contact">Contact</a></li>
+								<!--<li><a href="#elements">Elements</a></li>-->
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Intro -->
+							<article id="about">
+								<h2 class="major">Intro</h2>
+								<span class="image main"><img src="{{url_for('static',filename='css/images/pic01.jpg')}}" alt="" /></span>
+								<p>The purpose of this webapp is to provide a pipeline for all the basic steps involved in the lifecycle of a ML project including preprocessing, model training and hyperparamter optimization.</p>
+							</article>
+						<!-- Use -->
+							<article id="use">
+								<h2 class="major">How to Use</h2>
+								<span class="image main"><img src="{{url_for('static',filename='css/images/pic02.jpg')}}" alt="" /></span>
+								<p style="margin-bottom:2px;">1. Click on Start and upload your csv in the next page.<br>
+								    2. Select the problem statement - Regression problem or Classification problem.<br>
+									3. If your csv is raw and not preprocessed at all then select yes in the preprocessing option else select no.
+									If you select yes then minimal preprocessing techniques like Imputing, Standardization, Encoding will be applied to your data.<br>
+									4. Click Submit.<br>
+									5. Select the model which you want to use for training.</p>
+
+								<p style="text-align:center; font-size:20px; margin-bottom:2px;">	Important Note:</p>
+								<p>- Currently the web app only works with .csv files.<br>
+									- Keep you target column at the very end in your csv file.<br>
+									- Still working on this project so there maybe many errors left. 
+								</p>
+							</article>
+
+						<!-- Contact -->
+							<article id="contact">
+								<h2 class="major">Contact</h2>
+								<span class="image main"><img src="{{url_for('static',filename='css/images/pic03.jpg')}}" alt="" /></span>
+								<label style="display: inline;" class='labelClass' for="github"> github link : </label>
+								
+								<p style="text-align:center; display: inline;" name = "github" id="github"><a href="http://github.com/geekybread/">geekybread</a></p>
+								<br>
+								<label style="display: inline;" class='labelClass' for="email"> email : </label>
+								<p style="text-align:center; display: inline;" name = "email" id="email"> abarwalcu@gmail.com</p>
+							</article>
+
+						
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; This app is still in development so there may be some bugs</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="{{url_for('static',filename='css/assets/js/jquery.min.js')}}"></script>
+			<script src="{{url_for('static',filename='css/assets/js/browser.min.js')}}"></script>
+			<script src="{{url_for('static',filename='css/assets/js/breakpoints.min.js')}}"></script>
+			<script src="{{url_for('static',filename='css/assets/js/util.js')}}"></script>
+			<script src="{{url_for('static',filename='css/assets/js/main.js')}}"></script>
+
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+	<head>
+		<title>Result Page</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static',filename='css/assets/css/main.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}" />
+		<noscript><link rel="stylesheet" href="{{ url_for('static',filename='css/assets/css/noscript.css')}}" /></noscript>
+	</head>
+<body>
+   <div class="header">Result</div>
+     <p style="margin-left:30px; font-size: 20px;">Best parameters for your use case are : {{best_parameters}}</p> 
+     <p style="margin-left:30px; font-size: 20px;">Accuracy: {{best_value}}%</p> 
+
+     <form>
+       <input style= "margin-left:30px;" type="button" value="Previous Page" onclick="history.back()">
+     </form>
+     
+     <a href="{{ url_for('download') }}" ><button style= "cursor: pointer; margin-left:20px; background-color: #008CBA;">Download best model</button></a>
+
+     <a href="{{ url_for('upload') }}" ><button style= "cursor: pointer; margin-left:20px; background-color: #008CBA;">Try another file</button></a>
+
+     <a href="{{ url_for('index') }}" ><button style= "cursor: pointer; margin-left:20px; background-color: #008CBA;">Back to Home</button></a>
+
+     
+</body>
+</html>

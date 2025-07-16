@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>UPLOAD</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/assets/css/main.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}" />
+    <noscript><link rel="stylesheet" href="{{ url_for('static',filename='css/assets/css/noscript.css')}}" /></noscript>
+
+    <script>
+        function toggleFileInput(checkbox) {
+            const fileInput = document.getElementById('myFile');
+            const sampleTypeDiv = document.getElementById('sample_type_div');
+    
+            fileInput.disabled = checkbox.checked;
+            sampleTypeDiv.style.display = checkbox.checked ? 'block' : 'none';
+        }
+    
+        window.onload = function () {
+            const checkbox = document.getElementById('use_sample');
+            
+            // Default to unchecked state
+            checkbox.checked = false;
+            
+            toggleFileInput(checkbox);
+        }
+    </script>
+    
+</head>
+<body>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <label class='labelClass' for="myFile" style="display: inline;">Upload your CSV file </label>
+        <input style="margin-top:50px; margin-left:115px; display: inline;" type="file" id='myFile' name='file'/>
+
+        <br><br>
+
+        <label style="display: inline;" class='labelClass'>Or use sample data:</label>
+        <input type="checkbox" id="use_sample" name="use_test_file" value="yes" onchange="toggleFileInput(this)" 
+        style="width: 15px; height: 15px; display: inline-block; vertical-align: middle; margin-left: 5px;"/>
+        <label for="use_sample" style="display: inline;">Use sample data</label>
+        <div id="sample_type_div" style="margin-top: 10px; display: none;">
+            <label for="sample_type">Choose sample type:</label>
+            <select name="sample_type" id="sample_type">
+                <option value="Regression">Regression</option>
+                <option value="Classification">Classification</option>
+            </select>
+        </div>
+
+        <br><br>
+
+        <label style="display: inline;" class='labelClass' for="choice"> Choose your problem statement</label>
+        <select class='textBox' style="margin-left:45px; display: inline;" name="choice" id="choice">
+            <option value="Regression">Regression</option>
+            <option value="Classification">Classification</option>
+        </select>
+        <br><br>
+
+        <label class='labelClass' style="display: inline;" for="cleaned">Do you want to do minimal cleaning of your data?</label>
+        <select class='textBox' style="margin-left:15px; display: inline;" name="cleaned" id="cleaned">
+            <option value='Yes'>Yes </option>
+            <option value="No">No </option>
+        </select>
+        <br><br>
+
+        <input class='textBox' style="margin-left:275px" type="submit" value="Submit">
+    </form> 
+</body>
+</html>

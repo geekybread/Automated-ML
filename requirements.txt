@@ -1,0 +1,7 @@
+flask
+pandas
+scikit-learn
+optuna
+rq
+redis
+gunicorn

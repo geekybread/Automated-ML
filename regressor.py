@@ -87,6 +87,6 @@ class Regressor():
 
     def regress(self):
         study = optuna.create_study(direction="maximize")
-        study.optimize(objective(self.df, self.regressor_name), n_trials=10)
+        study.optimize(objective(self.df, self.regressor_name), n_trials=5)
         best_reg = "uploads/{}.pickle".format(study.best_trial.number)
         return study, best_reg

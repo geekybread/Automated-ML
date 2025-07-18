@@ -63,10 +63,15 @@ class objective(object):
                 min_samples_split=min_samples_split
             )
 
-        elif self.classifier_name=='logistic':
+        elif self.classifier_name == 'logistic':
             C = trial.suggest_float('c', 1e-3, 1000, log=True)
             self.classifier_obj = LogisticRegression(
-            C=C, random_state=42)
+                C=C,
+                max_iter=500,  # increase from default 100
+                random_state=42,
+                solver='lbfgs'  # optional, but good to be explicit
+    )
+
 
 
         score = sklearn.model_selection.cross_val_score(self.classifier_obj, self.X, self.y, n_jobs=-1, cv=3)
@@ -86,6 +91,6 @@ class Classifier():
 
     def classify(self):
         study = optuna.create_study(direction="maximize")
-        study.optimize(objective(self.df, self.classifier_name), n_trials=10)
+        study.optimize(objective(self.df, self.classifier_name), n_trials=3)
         best_clf = "uploads/{}.pickle".format(study.best_trial.number)
         return study, best_clf
